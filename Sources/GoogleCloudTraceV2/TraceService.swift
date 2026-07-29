@@ -58,7 +58,7 @@ public class TraceServiceClient: Clients.TraceServiceProtocol {
   /// @Snippet(path: "TraceService_CreateSpan")
   public func createSpan(
     request: Span, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleDevtoolsCloudtraceV2.Span {
+  ) async throws -> GoogleCloudTraceV2.Span {
     try await self.inner.createSpan(request: request, options: options)
   }
 }
@@ -80,7 +80,7 @@ extension Clients {
     ) async throws
 
     /// See `TraceServiceClient.createSpan`.
-    func createSpan(request: Span) async throws -> GoogleDevtoolsCloudtraceV2.Span
+    func createSpan(request: Span) async throws -> GoogleCloudTraceV2.Span
 
     /// See `TraceServiceClient.batchWriteSpans`.
     func batchWriteSpans(
@@ -90,7 +90,7 @@ extension Clients {
     /// See `TraceServiceClient.createSpan`.
     func createSpan(
       request: Span, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleDevtoolsCloudtraceV2.Span
+    ) async throws -> GoogleCloudTraceV2.Span
   }
 }
 
@@ -117,13 +117,13 @@ extension Clients.TraceServiceProtocol {
     try await self.batchWriteSpans(request: request)
   }
 
-  public func createSpan(request: Span) async throws -> GoogleDevtoolsCloudtraceV2.Span {
+  public func createSpan(request: Span) async throws -> GoogleCloudTraceV2.Span {
     try await self.createSpan(request: request, options: .init())
   }
 
   public func createSpan(
     request: Span, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleDevtoolsCloudtraceV2.Span {
+  ) async throws -> GoogleCloudTraceV2.Span {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 }

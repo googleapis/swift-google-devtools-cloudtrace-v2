@@ -29,7 +29,7 @@ extension Clients {
 
     func createSpan(
       request: Span, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleDevtoolsCloudtraceV2.Span
+    ) async throws -> GoogleCloudTraceV2.Span
   }
 
   class TraceServiceTransport: TraceServiceStub {
@@ -62,7 +62,7 @@ extension Clients {
 
     public func createSpan(
       request: Span, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleDevtoolsCloudtraceV2.Span {
+    ) async throws -> GoogleCloudTraceV2.Span {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -79,7 +79,7 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleDevtoolsCloudtraceV2.Span.self, from: data)
+        GoogleCloudTraceV2.Span.self, from: data)
     }
   }
 }
